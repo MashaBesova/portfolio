@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const BOT_TOKEN = '7979859669:AAH2x1nPJwBfD3tDZb-ODCU4xQFiEsXLYv8';
 
-    const CHAT_ID = '@Forms12345_site12345_bot';
+    const CHAT_ID = '2141984414';
     
     // ============================================
     // ШАГ 2: ПРОВЕРКА ДАННЫХ ПРИ ЗАГРУЗКЕ
@@ -520,5 +520,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
         } catch (error) {
             console.error('
+
 
 
