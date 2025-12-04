@@ -1,7 +1,3 @@
-// ============================================
-// ФАЙЛ: script.js
-// ПОЛНЫЙ КОД ДЛЯ ОТПРАВКИ ФОРМЫ В TELEGRAM
-// ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('✅ Сайт портфолио загружен!');
@@ -524,4 +520,5 @@ document.addEventListener('DOMContentLoaded', function() {
             
         } catch (error) {
             console.error('
+
 
