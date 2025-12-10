@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
         CHAT_ID === '2141984414' ||
         BOT_TOKEN.includes('ВСТАВЬТЕ')) {
         console.error('ЗАМЕНИТЕ BOT_TOKEN и CHAT_ID на ваши данные!');
-        alert('ВАЖНО: Замените BOT_TOKEN и CHAT_ID на ваши данные в файле script.js');
     }
     
     // Находим форму
@@ -230,3 +229,4 @@ const yearElement = document.getElementById('current-year');
 if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
 }
+
