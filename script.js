@@ -413,92 +413,6 @@
     }
     
     // ============================================
-    // ТЕСТОВАЯ КНОПКА ДЛЯ ПРОВЕРКИ
-    // ============================================
-    
-    function createTestButton() {
-        // Проверяем, не существует ли уже такая кнопка
-        if (document.getElementById('test-telegram-button')) {
-            return;
-        }
-        
-        const testButton = document.createElement('button');
-        testButton.id = 'test-telegram-button';
-        testButton.innerHTML = '🧪 Тест отправки в Telegram';
-        testButton.className = 'btn btn-secondary';
-        testButton.style.cssText = `
-            display: block;
-            margin: 20px auto;
-            padding: 12px 24px;
-        `;
-        
-        testButton.addEventListener('click', async function() {
-            console.log('🧪 Тестирую отправку в Telegram...');
-            
-            // Проверяем данные
-            if (BOT_TOKEN.includes('ВСТАВЬТЕ')) {
-                alert('❌ Сначала вставьте ваш токен бота в код! (строка 12)');
-                return;
-            }
-            
-            if (CHAT_ID.includes('ВСТАВЬТЕ')) {
-                alert('❌ Сначала вставьте ваш Chat ID в код! (строка 13)');
-                return;
-            }
-            
-            this.disabled = true;
-            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Тестирую...';
-            
-            try {
-                // Тестовое сообщение
-                const testMessage = `🧪 ТЕСТОВОЕ СООБЩЕНИЕ\n\n` +
-                                   `Это тестовое сообщение от сайта портфолио UX/UI дизайнера.\n` +
-                                   `Если вы это видите, значит отправка работает правильно!\n\n` +
-                                   `⏰ Время: ${new Date().toLocaleString('ru-RU')}\n` +
-                                   `✅ Все настроено корректно!`;
-                
-                // Отправляем через FormData
-                const formData = new FormData();
-                formData.append('chat_id', CHAT_ID);
-                formData.append('text', testMessage);
-                
-                const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                const result = await response.json();
-                
-                if (result.ok) {
-                    alert('✅ Тест пройден! Проверьте Telegram, должно прийти сообщение.');
-                    console.log('✅ Тест успешен! Ответ:', result);
-                } else {
-                    alert('❌ Ошибка: ' + result.description);
-                    console.error('❌ Тест не пройден:', result);
-                }
-                
-            } catch (error) {
-                alert('❌ Сетевая ошибка: ' + error.message);
-                console.error('❌ Ошибка при тесте:', error);
-                
-            } finally {
-                this.disabled = false;
-                this.innerHTML = '🧪 Тест отправки в Telegram';
-            }
-        });
-        
-        // Добавляем кнопку после формы
-        const form = document.getElementById('contact-form');
-        if (form && form.parentNode) {
-            form.parentNode.appendChild(testButton);
-        } else {
-            document.body.appendChild(testButton);
-        }
-        
-        console.log('✅ Тестовая кнопка создана');
-    }
-    
-    // ============================================
     // ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ДЛЯ СТРАНИЦЫ
     // ============================================
     
@@ -608,4 +522,5 @@
     console.log('🧪 Для теста вызовите: sendTestMessage()');
     
 })();
+
 
